@@ -2,6 +2,9 @@ from flask import Flask, request
 import json
 from routes.user import user
 from routes.book import book
+from routes.collection import collection
+from routes.comment import comment
+from routes.searchhistory import searchhistory
 # app = Flask(__name__)
 from db_config import app
 
@@ -15,6 +18,12 @@ CORS(app)
 app.register_blueprint(user, url_prefix="/user")
 # Book模块
 app.register_blueprint(book, url_prefix="/book")
+# collection模块
+app.register_blueprint(collection, url_prefix="/collection")
+# comment模块
+app.register_blueprint(comment, url_prefix="/comment")
+# searchhistory模块
+app.register_blueprint(searchhistory, url_prefix="/searchhistory")
 
 
 @app.route('/')

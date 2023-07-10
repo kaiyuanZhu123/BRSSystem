@@ -28,9 +28,14 @@ def login():
 @user.route('/register', methods=['POST'])
 def reg():
     data = json.loads(request.data)
-    print(data)
     data = User_reg({
         "name": data['params']['username'],
         "password": data['params']['password']
     })
     return data
+
+@user.route('/changename', methods=['GET'])
+def changename():
+    userid = request.args.get('userid')
+    username = request.args.get('username')
+    return User_changename(userid=userid, username=username)

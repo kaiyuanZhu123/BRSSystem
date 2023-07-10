@@ -22,3 +22,12 @@ def User_login(account, pwd):
     user = u_o._login(account, pwd)
     data = Class_To_Data(user, u_o.__fields__, 1)
     return data
+
+def User_getnamebyid(userid):
+    u_o = User_operation()
+    username = u_o._getnamebyid(userid)
+    return username
+
+def User_changename(userid, username):
+    u_o = User_operation()
+    return u_o._changename(userid=userid, username=username)

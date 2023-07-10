@@ -41,3 +41,9 @@ def Book_similarBook():
     data = b_o._similarBook()
     data = Class_To_Data(data, b_o.__fields__, 0)
     return data
+
+def Book_findBookById(id):
+    b_o = Book_operation()
+    data = b_o._findBookById(id)
+    data = Class_To_Data(data, b_o.__fields__, 1)
+    return data

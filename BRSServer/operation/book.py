@@ -48,6 +48,11 @@ class Book_operation():
         book_list = Books.query.all()
         return book_list[:9]
 
+    def _findBookById(self, id):
+        # 使用bookid搜索图书
+        book = Books.query.filter_by(bookid=id).first()
+        return book
+
     def _addceshi(self):
         # 用于向数据库添加初始图书数据
         import requests

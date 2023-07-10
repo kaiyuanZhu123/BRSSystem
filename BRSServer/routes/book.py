@@ -1,7 +1,6 @@
 from flask import Blueprint, request
 
 book = Blueprint('book', __name__)
-import json
 from api.book import *
 
 
@@ -42,4 +41,10 @@ def searchBook():
 @book.route('/similarbook', methods=['GET'])
 def similarBook():
     data = Book_similarBook()
+    return data
+
+@book.route('/findbookbyid', methods=['GET'])
+def findBookById():
+    id = request.args['bookid']
+    data = Book_findBookById(id)
     return data

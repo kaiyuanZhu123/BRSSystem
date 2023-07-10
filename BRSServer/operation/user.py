@@ -10,6 +10,10 @@ class User_operation():
         user_list = Users.query.all()
         return user_list
 
+    def _getnamebyid(self, userid):
+        user = Users.query.filter_by(userid=userid).first()
+        return user.name
+
     def _login(self, account, pwd):
         user = Users.query.filter_by(account=account, password=pwd).first()
         return user
@@ -26,3 +30,9 @@ class User_operation():
         db.session.add(u)
         db.session.commit()
         return {"result": "success", "account": u.account}
+
+    def _changename(self,userid, username):
+        user = Users.query.filter_by(userid=userid).first()
+        user.name = username
+        db.session.commit()
+        return {'result': 'ok', 'username': username}
